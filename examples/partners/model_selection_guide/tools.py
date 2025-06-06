@@ -176,9 +176,10 @@ def chem_lookup(chemical_name: str, property: Optional[str] = None) -> Dict:
         "properties": MOCK_CHEMICALS[chemical_name]
     }
 
-def cost_estimator(reagents: List[Dict] = [], equipment: Optional[List[str]] = None, duration_hours: Optional[float] = None) -> Dict:
+def cost_estimator(reagents: Optional[List[Dict]] = None, equipment: Optional[List[str]] = None, duration_hours: Optional[float] = None) -> Dict:
     """Mock function to estimate the cost of reagents and procedures."""
     logging.info(f"(Tool) Cost estimator: {reagents}, {equipment}, {duration_hours}")
+    reagents = reagents or []
     total_cost = 0
     reagent_costs = {}
     equipment_costs = {}
