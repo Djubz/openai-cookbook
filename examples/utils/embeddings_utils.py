@@ -16,8 +16,8 @@ import pandas as pd
 client = OpenAI(max_retries=5)
 
 
-def get_embedding(text: str, model="text-embedding-3-small", **kwargs) -> List[float]:
-    # Substitute newlines, which may adversely impact performance.
+def obtain_embedding(text: str, model="text-embedding-3-small", **kwargs) -> List[float]:
+    # Replace newlines, as they might negatively affect performance.
     text = text.replace("\n", " ")
 
     response = client.embeddings.create(input=[text], model=model, **kwargs)
@@ -25,10 +25,10 @@ def get_embedding(text: str, model="text-embedding-3-small", **kwargs) -> List[f
     return response.data[0].embedding
 
 
-async def aget_embedding(
+async def aobtain_embedding(
     text: str, model="text-embedding-3-small", **kwargs
 ) -> List[float]:
-    # Substitute newlines, which may adversely impact performance.
+    # Replace newlines, as they might negatively affect performance.
     text = text.replace("\n", " ")
 
     return (await client.embeddings.create(input=[text], model=model, **kwargs))[
@@ -36,43 +36,32 @@ async def aget_embedding(
     ][0]["embedding"]
 
 
-def get_embeddings(
-    list_of_text: List[str], model="text-embedding-3-small", **kwargs
+def obtain_embeddings(
+    texts: List[str], model="text-embedding-3-small", **kwargs
 ) -> List[List[float]]:
-    assert len(list_of_text) <= 2048, "The batch size must not exceed 2048."
+    assert len(texts) <= 2048, "The maximum batch size allowed is 2048."
 
-    # Substitute newlines, which may adversely impact performance.
-    list_of_text = [text.replace("\n", " ") for text in list_of_text]
+    # Replace newlines, as they might negatively affect performance.
+    texts = [text.replace("\n", " ") for text in texts]
 
-    data = client.embeddings.create(input=list_of_text, model=model, **kwargs).data
+    data = client.embeddings.create(input=texts, model=model, **kwargs).data
     return [d.embedding for d in data]
 
 
-async def aget_embeddings(
-    list_of_text: List[str], model="text-embedding-3-small", **kwargs
+async def aobtain_embeddings(
+    texts: List[str], model="text-embedding-3-small", **kwargs
 ) -> List[List[float]]:
-    assert len(list_of_text) <= 2048, "The batch size must not exceed 2048."
+    assert len(texts) <= 2048, "The maximum batch size allowed is 2048."
 
-    # Substitute newlines, which may adversely impact performance.
-    list_of_text = [text.replace("\n", " ") for text in list_of_text]
+    # Replace newlines, as they might negatively affect performance.
+    texts = [text.replace("\n", " ") for text in texts]
 
     data = (
-        await client.embeddings.create(input=list_of_text, model=model, **kwargs)
+        await client.embeddings.create(input=texts, model=model, **kwargs)
     ).data
     return [d.embedding for d in data]
 
 
-def cosine_similarity(a, b):
+def calculate_cosine_similarity(a, b):
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
-
-
-def plot_multiclass_precision_recall(
-    y_score, y_true_untransformed, class_list, classifier_name
-):
-    """
-    Generates a Precision-Recall plot for a multiclass scenario. It visualizes average precision-recall, individual class precision-recall, and reference F1 contours.
-
-    The code has been slightly altered but is primarily based on https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html
-    """
-    n_classes = len(class_list)
 ```
