@@ -1,3 +1,7 @@
+# Pull Request Template
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our [contribution guidelines](https://github.com/openai/openai-cookbook/blob/main/CONTRIBUTING.md) for more details.
+
 ## Summary
 
 Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
@@ -7,6 +11,8 @@ Briefly describe the changes and the goal of this PR. Make sure the PR title sum
 Why are these changes necessary? How do they improve the cookbook?
 
 ---
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our [contribution guidelines](https://github.com/openai/openai-cookbook/blob/main/CONTRIBUTING.md) for more details.
 
 ## For new content
 
@@ -21,4 +27,15 @@ When contributing new content, read through our [contribution guidelines](https:
   - [ ] Correctness: The information I include is correct and all of my code executes successfully.
   - [ ] Completeness: I have explained everything fully, including all necessary references and citations.
 
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our [contribution guidelines](https://github.com/openai/openai-cookbook/blob/main/CONTRIBUTING.md) for more details.
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our [contribution guidelines](https://github.com/openai/openai-cookbook/blob/main/CONTRIBUTING.md) for more details.
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our [contribution guidelines](https://github.com/openai/openai-cookbook/blob/main/CONTRIBUTING.md) for more details.
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our [contribution guidelines](https://github.com/openai/openai-cookbook/blob/main/CONTRIBUTING.md) for more details.
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our [contribution guidelines](https://github.com/openai/openai-cookbook/blob/main/CONTRIBUTING.md) for more details.
+
+```
 We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our [contribution guidelines](https://github.com/openai/openai-cookbook/blob/main/CONTRIBUTING.md) for more details.
