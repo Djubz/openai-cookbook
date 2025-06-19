@@ -18,3 +18,8 @@ For other useful tools, guides and courses, check out these [related resources f
 ## License
 
 MIT License
+
+## Ethical AI guidelines
+
+See [articles/ethical_ai_guidelines.md](articles/ethical_ai_guidelines.md) for recommendations on reinforcing human-to-human relationships when developing with AI.
+
