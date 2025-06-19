@@ -36,13 +36,26 @@ class PythonExecTool(ToolInterface):
         Execute the Python code in a Docker container and return the output.
         """
         python_code = arguments["python_code"]
-        python_code_stripped = python_code.strip('"""')
+        python_code_stripped = self._strip_code_fence(python_code)
 
         output, errors = self._run_code_in_container(python_code_stripped)
         if errors:
             return f"[Error]\n{errors}"
 
         return output
+
+    @staticmethod
+    def _strip_code_fence(code: str) -> str:
+        """Remove optional Markdown code fences and language hints."""
+        code = code.strip()
+        if code.startswith("```"):
+            code = code[3:]
+            if code.startswith("python"):
+                code = code[len("python"):]
+            code = code.lstrip()
+        if code.endswith("```"):
+            code = code[:-3]
+        return code
 
     @staticmethod
     def _run_code_in_container(code: str, container_name: str = "sandbox") -> Tuple[str, str]:
