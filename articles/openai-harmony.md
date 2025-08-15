@@ -91,7 +91,6 @@ developer_message = (
                 ),
             ]
         )
-	)
 )
 
 convo = Conversation.from_messages(
@@ -126,7 +125,9 @@ Additionally the openai_harmony library also includes a StreamableParser for par
 ```py
 from openai_harmony import (
     load_harmony_encoding,
-    StreamableParser
+    Role,
+    StreamableParser,
+    HarmonyEncodingName
 )
 
 encoding = load_harmony_encoding(HarmonyEncodingName.HARMONY_GPT_OSS)
@@ -228,6 +229,18 @@ Current date: 2025-06-28
 
 Reasoning: high
 
+# Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|>
+```
+
+If functions calls are present in the developer message section, use:
+
+```
+<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: 2024-06
+Current date: 2025-06-28
+
+Reasoning: high
+
 # Valid channels: analysis, commentary, final. Channel must be included for every message.
 Calls to these tools must go to the commentary channel: 'functions'.<|end|>
 ```
@@ -301,7 +314,7 @@ For the model to work properly, the input for the next sampling should be
 
 ```
 <|start|>user<|message|>What is 2 + 2?<|end|>
-<|start|>assistant<|channel|>final<|message|>2 + 2 = 4.<|return|>
+<|start|>assistant<|channel|>final<|message|>2 + 2 = 4.<|end|>
 <|start|>user<|message|>What about 9 / 2?<|end|>
 <|start|>assistant
 ```
